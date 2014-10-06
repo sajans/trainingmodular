@@ -1,0 +1,22 @@
+<?php
+//echo $this->register;
+$form = $this->register;
+?>
+<?php ?>
+<form action="<?php echo $form->getAction();?>" method="<?php echo $form->getMethod()?>">
+<div>
+    <lable>First Name</lable><br>
+    <?php  echo  $form->getElement('first_name') ;?>
+</div>
+<div>
+    <?php  echo  $form->getElement('last_name') ;?>
+</div>
+<div>
+    <?php  echo  $form->getElement('email') ;?>
+</div>
+<div>
+    <?php  echo  $form->getElement('submit') ;?>
+</div>
+</form>
+<?php        ?>
+<a href="<?php echo $this->url(array('module'=>'user','controller'=>'index','action'=>'index')); ?>">back</a>

@@ -1,0 +1,11 @@
+<h1 style="float:right">Sajan</h1>
+<h1 style="float:right"><?php echo $this->test; ?></h1>
+<?php 
+echo $this->formText('name','Name',array('id'=>'name_field'));
+echo $this->formTextarea('description','Description',array('id'=>'textarea_field','rows'=>'6','cols'=>'6'));
+//echo $this->formCheckbox('check',null,null,array('1'=>'Yes','2'=>'Two'));
+echo "<br>"."Which  Do You Like"."<br>"; 
+echo $this->formMultiCheckbox('check',null,null,array('movie'=>'movie','sport'=>'Sport','dance'=>'Dance'));
+
+
+?>

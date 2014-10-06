@@ -1,0 +1,50 @@
+
+<?php echo $this->partial('partials/right.phtml', array('test' => "Subedi")); ?><!--accessing partial and passing data to view -->
+<?php 
+/*echo $this->partialLoop('partials/right.phtml', array(
+    '0' => array('test' => "Subedi"),
+    '1' => array('test' => 'Sudeep'),
+));
+
+*/?><!--Same as partial but works in loop -->
+<table>
+    <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email</th>
+        <th>Role</th>
+        <th>edit</th>
+        <th>delete</th>
+        <th></th>
+        <th><a href="<?php echo $this->url(array('module' => 'user', 'controller' => 'index', 'action' => 'register')); ?>">Add New</a></th>
+    </tr>
+
+<?php foreach ($this->users as $user): ?>
+        <tr>
+            <td><?php echo $this->escape($user->first_name); ?></td> 
+            <td><?php echo $this->escape($user->last_name); ?></td> 
+            <td><?php echo $this->escape($user->email); ?></td>
+            <td><?php echo $this->escape($user->role); ?></td>
+            <td><a href="<?php echo $this->url(array('module' => 'user', 'controller' => 'index', 'action' => 'update', 'id' => $user->id)); ?>">edit</a></td> 
+            <td><a href="<?php echo $this->url(array('module' => 'user', 'controller' => 'index', 'action' => 'delete', 'id' => $user->id)); ?>">delete</a></td> 
+        </tr>
+<?php endforeach; ?>
+
+</table>
+
+<?php
+$zendCur = new Zend_Currency('de_AT');
+$helper = new Zend_View_Helper_Currency($zendCur);
+echo $helper->currency("123",array('precision'=>'5'));
+//echo $this->currency('123');
+?><!--Currency Helper By default $ -->
+
+<?php 
+
+/*view helper example. path is APP/View/Helper/Format.php */
+ echo $this->format('Custom View Helper Example.');
+ echo $this->formatto('Custom View Helper Example.');
+ 
+ $custom = new Custom_Color();
+ echo $custom->color("Custom"); //this is defined manually.
+?>
